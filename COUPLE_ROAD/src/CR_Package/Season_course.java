@@ -31,6 +31,7 @@ public class Season_course {
         JLabel icon_credit = new JLabel("Icons by Icon8");
         icon_credit.setForeground(Color.GRAY);
         icon_credit.setFont(new Font("Nanum Gothic", Font.PLAIN, 10));
+        icon_credit.setHorizontalAlignment(JLabel.CENTER);
         icon_credit.setBounds(250, 540, 100, 20);
         panel.add(icon_credit);
 
@@ -44,10 +45,10 @@ public class Season_course {
         JLabel autumnLabel = new JLabel(autumn_button);
         JLabel winterLabel = new JLabel(winter_button);
 
-        springLabel.setBounds(10, 400, 96, 96);
-        summerLabel.setBounds(160, 400, 96, 96);
-        autumnLabel.setBounds(310, 400, 96, 96);
-        winterLabel.setBounds(460, 400, 96, 96);
+        springLabel.setBounds(45, 400, 96, 96); 
+        summerLabel.setBounds(183, 400, 96, 96); 
+        autumnLabel.setBounds(321, 400, 96, 96); 
+        winterLabel.setBounds(459, 400, 96, 96); 
 
         panel.add(springLabel);
         panel.add(summerLabel);
