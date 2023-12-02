@@ -1,0 +1,36 @@
+private static void createCourseSelectionFrame(String season) {
+    JFrame frame = new JFrame(season + " 코스 추천");
+    frame.setSize(600, 600);
+    frame.setLayout(new BorderLayout());
+
+    JPanel topPanel = new JPanel();
+    JLabel title = new JLabel(season + "에 어울리는 코스를 추천합니다.");
+    title.setFont(new Font("Serif", Font.BOLD, 32));
+    topPanel.add(title);
+    frame.add(topPanel, BorderLayout.NORTH);
+
+    JPanel optionPanel = new JPanel();
+    JLabel selectedOptionLabel = new JLabel("선택한 옵션: " + season);
+    optionPanel.add(selectedOptionLabel);
+    frame.add(optionPanel, BorderLayout.CENTER);
+
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.setLayout(new GridLayout(1, 3, 10, 50));
+
+    JButton mealButton = new JButton("식사");
+    JButton cafeButton = new JButton("카페");
+    JButton tourButton = new JButton("관광");
+
+    Dimension preferredSize = new Dimension(600, 240);
+    mealButton.setPreferredSize(preferredSize);
+    cafeButton.setPreferredSize(preferredSize);
+    tourButton.setPreferredSize(preferredSize);
+
+    buttonPanel.add(mealButton);
+    buttonPanel.add(cafeButton);
+    buttonPanel.add(tourButton);
+
+    frame.add(buttonPanel, BorderLayout.SOUTH);
+
+    frame.setVisible(true);
+}
