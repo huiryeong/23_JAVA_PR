@@ -146,18 +146,21 @@ public class Season_course
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.jfif"));
             name = "단양 보리곳간";
             text = "직접 재배하는 산나물과 지역 농민들이 재배하는 \n 제철 재료로 만든 요리를 판매하는 식당";
+            //https://map.naver.com/p/search/%EB%B3%B4%EB%A6%AC%EA%B3%B3%EA%B0%84/place/1561549247?placePath=?entry=pll&from=nx&fromNxList=true&c=15.00,0,0,0,dh
         } 
         else if (season.equals("봄") && content.equals("카페")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.jpg"));
             name = "보령 청보리 창고";
             text = "- 푸른 청보리 밭을 보며 봄의 청량함을 느낄 수 있다. \n - 드라마 '그해 우리는' 촬영지";
+            //https://m.blog.naver.com/goeun061133/223177333187?isInf=true
         }
         else if (season.equals("봄") && content.equals("관광")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_tour.jpg"));
             name = "순천 선암사";
             text = "- 벚나무가 많고, 겹벚꽃을 볼 수 있다. \n - 산으로 둘러싸여 있어 자연을 즐기기 적합하다.";
+            //http://travel.chosun.com/site/data/html_dir/2015/03/06/2015030602608.html
         }
         
         
@@ -165,20 +168,23 @@ public class Season_course
         else if (season.equals("여름") && content.equals("식사")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_meal.jfif"));
-            name = "장소이름";
-            text = "설명";
+            name = "송도 통큰조개";
+            text = "바다를 보며 조개 요리를 먹을 수 있는 식당";
+            //https://blog.naver.com/sacato/223079668473
         } 
         else if (season.equals("여름") && content.equals("카페")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_cafe.jpg"));
-            name = "장소이름";
-            text = "설명";
+            name = "강릉 보사노바";
+            text = "- 오션 뷰, 파도 소리와 커피를 즐길 수 있다.";
+            //https://kr.trip.com/moments/detail/gangwon-do-1185-12725580/
         }
         else if (season.equals("여름") && content.equals("관광")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_tour.jpg"));
-            name = "장소이름";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_tour.png"));
+            name = "춘천 해피초원목장";
+            text = "- 여름의 초록빛 자연과 춘천호의 조화 \n - 다양한 동물 먹이주기 체험 가능";
+            //https://www.ecolivestock.org/magazine_theium/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=8659330&t=board
         }      
          
         
@@ -247,7 +253,7 @@ public class Season_course
         JLabel text_label = new JLabel("<html>" + text.replace("\n", "<br>") + "</html>");
         text_label.setFont(new Font("Serif", Font.PLAIN, 18));
         text_label.setHorizontalAlignment(SwingConstants.LEFT); 
-        text_label.setBounds(100, 430, 500, 100); 
+        text_label.setBounds(110, 430, 500, 100); 
         content_panel.add(text_label);
 
         content_frame.add(content_panel);
