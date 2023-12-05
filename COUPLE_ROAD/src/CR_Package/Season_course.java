@@ -132,11 +132,11 @@ public class Season_course
         JFrame content_frame = new JFrame(season + " " + content);
         content_frame.setSize(600, 600);
 
-        JPanel content_panel = new JPanel();
-        content_panel.setLayout(new BorderLayout());
+        JPanel content_panel = new JPanel(null);
 
         // 장소 이미지와 설명
         ImageIcon image = null;
+        String name = "";
         String text = "";
 
         // 모든 경우에 출력될 이미지와 설명
@@ -145,101 +145,52 @@ public class Season_course
         if (season.equals("봄") && content.equals("식사")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.png"));
-            text = "봄의 식사";
+            name = "봄의 식사";
+            text = "설명";
         } 
         else if (season.equals("봄") && content.equals("카페")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-            text = "봄의 카페";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.jpg"));
+            name = "보령 청보리 창고";
+            text = "- 푸른 들판으로 봄의 청량함을 느낄 수 있다. \n - 드라마 '그해 우리는' 촬영지";
         }
         else if (season.equals("봄") && content.equals("관광")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_tout.png"));
-            text = "봄의 관광";
+            name = "봄의 관광";
+            text = "설명";
         }
         
         
-        // 여름
-        else if (season.equals("여름") && content.equals("식사")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.png"));
-        	text = "봄의 식사";
-        } 
-        else if (season.equals("여름") && content.equals("카페")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-        	text = "봄의 카페";
-        }
-        else if (season.equals("여름") && content.equals("카페")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-        	text = "봄의 관광";
-        }
+        /*
+        여름 가을 겨울
+         */
         
-        
-        // 가을
-        else if (season.equals("가을") && content.equals("식사")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.png"));
-        	text = "봄의 식사";
-        } 
-        else if (season.equals("가을") && content.equals("카페")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-        	text = "봄의 카페";
-        }
-        else if (season.equals("가을") && content.equals("카페")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-        	text = "봄의 관광";
-        }
-        
-        
-        // 겨울
-        else if (season.equals("겨울") && content.equals("식사")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.png"));
-        	text = "봄의 식사";
-        } 
-        else if (season.equals("겨울") && content.equals("카페")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-        	text = "봄의 카페";
-        }
-        else if (season.equals("겨울") && content.equals("카페")) 
-        {
-            //image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.png"));
-        	text = "봄의 관광";
-        }
-        
-        
-        JPanel image_text_panel = new JPanel(new BorderLayout());
-
         JLabel title_label = new JLabel(season + " " + content);
         title_label.setFont(new Font("Serif", Font.BOLD, 24));
         title_label.setHorizontalAlignment(SwingConstants.CENTER);
-
-        JPanel title_panel = new JPanel();
-        title_panel.add(title_label);
-
-        // 간격을 위해서 빈 레이블 생성
-        JLabel empty_label = new JLabel(" ");
-        JPanel empty_panel = new JPanel();
-        empty_panel.add(empty_label);
+        title_label.setBounds(0, 20, 600, 30); 
+        content_panel.add(title_label);
+        
+        Image og = image.getImage();
+        Image standard_size_image = og.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+        image = new ImageIcon(standard_size_image);
 
         JLabel image_label = new JLabel(image);
-        image_text_panel.add(image_label, BorderLayout.WEST);
+        image_label.setBounds(150, 70, 300, 300); 
+        content_panel.add(image_label);
 
-        JLabel text_label = new JLabel(text);
+        JLabel name_label = new JLabel(name);
+        name_label.setFont(new Font("Serif", Font.PLAIN, 18));
+        name_label.setHorizontalAlignment(SwingConstants.CENTER);
+        name_label.setBounds(0, 400, 600, 30); 
+        content_panel.add(name_label);
+        
+        JLabel text_label = new JLabel("<html>" + text.replace("\n", "<br>") + "</html>");
         text_label.setFont(new Font("Serif", Font.PLAIN, 18));
-        text_label.setHorizontalAlignment(SwingConstants.CENTER);
-        image_text_panel.add(text_label, BorderLayout.CENTER);
-
-        JPanel all_Panel = new JPanel(new GridLayout(3, 1));
-        all_Panel.add(title_panel);
-        all_Panel.add(empty_panel);
-        all_Panel.add(image_text_panel);
-        content_panel.add(all_Panel, BorderLayout.NORTH);
+        text_label.setHorizontalAlignment(SwingConstants.LEFT); 
+        text_label.setBounds(100, 430, 500, 100); 
+        content_panel.add(text_label);
 
         content_frame.add(content_panel);
         content_frame.setVisible(true);
