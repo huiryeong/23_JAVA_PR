@@ -143,27 +143,86 @@ public class Season_course
         // 봄
         if (season.equals("봄") && content.equals("식사")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.png"));
-            name = "봄의 식사";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_meal.jfif"));
+            name = "단양 보리곳간";
+            text = "직접 재배하는 산나물과 지역 농민들이 재배하는 \n 제철 재료로 만든 요리를 판매하는 식당";
         } 
         else if (season.equals("봄") && content.equals("카페")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_cafe.jpg"));
             name = "보령 청보리 창고";
-            text = "- 푸른 들판으로 봄의 청량함을 느낄 수 있다. \n - 드라마 '그해 우리는' 촬영지";
+            text = "- 푸른 청보리 밭을 보며 봄의 청량함을 느낄 수 있다. \n - 드라마 '그해 우리는' 촬영지";
         }
         else if (season.equals("봄") && content.equals("관광")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_tout.png"));
-            name = "봄의 관광";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring_tour.jpg"));
+            name = "순천 선암사";
+            text = "- 벚나무가 많고, 겹벚꽃을 볼 수 있다. \n - 산으로 둘러싸여 있어 자연을 즐기기 적합하다.";
+        }
+        
+        
+        // 여름
+        else if (season.equals("여름") && content.equals("식사")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_meal.jfif"));
+            name = "장소이름";
+            text = "설명";
+        } 
+        else if (season.equals("여름") && content.equals("카페")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_cafe.jpg"));
+            name = "장소이름";
+            text = "설명";
+        }
+        else if (season.equals("여름") && content.equals("관광")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer_tour.jpg"));
+            name = "장소이름";
+            text = "설명";
+        }      
+         
+        
+        // 가을
+        else if (season.equals("가을") && content.equals("식사")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_meal.jfif"));
+            name = "장소이름";
+            text = "설명";
+        } 
+        else if (season.equals("가을") && content.equals("카페")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_cafe.jpg"));
+            name = "장소이름";
+            text = "설명";
+        }
+        else if (season.equals("가을") && content.equals("관광")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_tour.jpg"));
+            name = "장소이름";
             text = "설명";
         }
         
         
-        /*
-        여름 가을 겨울
-         */
+      // 겨울
+        else if (season.equals("겨울") && content.equals("식사")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_meal.jfif"));
+            name = "장소이름";
+            text = "설명";
+        } 
+        else if (season.equals("겨울") && content.equals("카페")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_cafe.jpg"));
+            name = "장소이름";
+            text = "설명";
+        }
+        else if (season.equals("겨울") && content.equals("관광")) 
+        {
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_tour.jpg"));
+            name = "장소이름";
+            text = "설명";
+        }
+        
         
         JLabel title_label = new JLabel(season + " " + content);
         title_label.setFont(new Font("Serif", Font.BOLD, 24));
