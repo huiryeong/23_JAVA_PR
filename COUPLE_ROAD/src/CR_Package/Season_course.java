@@ -13,14 +13,14 @@ public class Season_course
 
         JPanel panel = new JPanel(null);
         frame.add(panel);
-        placeComponents(panel);
+        First_frame(panel);
 
         frame.setVisible(true);
     }
 
     
     // 첫 화면
-    private static void placeComponents(JPanel panel) 
+    private static void First_frame(JPanel panel) 
     {
         JLabel title = new JLabel("LOVE ROAD");
         title.setFont(new Font("Serif", Font.BOLD, 24));
@@ -57,7 +57,7 @@ public class Season_course
         {
             public void mouseClicked(java.awt.event.MouseEvent evt) 
             {
-                createCourseSelectionFrame("봄");
+            	Second_frame("봄");
             }
         });
 
@@ -65,7 +65,7 @@ public class Season_course
         {
             public void mouseClicked(java.awt.event.MouseEvent evt) 
             {
-                createCourseSelectionFrame("여름");
+            	Second_frame("여름");
             }
         });
 
@@ -73,7 +73,7 @@ public class Season_course
         {
             public void mouseClicked(java.awt.event.MouseEvent evt) 
             {
-                createCourseSelectionFrame("가을");
+            	Second_frame("가을");
             }
         });
 
@@ -81,53 +81,52 @@ public class Season_course
         {
             public void mouseClicked(java.awt.event.MouseEvent evt) 
             {
-                createCourseSelectionFrame("겨울");
+            	Second_frame("겨울");
             }
         });
     }
 
     
     // 두 번째 화면
-    private static void createCourseSelectionFrame(String season) 
-    {
+    // 레이아웃 제거 후 직접 지정으로 변경
+    private static void Second_frame(String season) {
         JFrame frame = new JFrame(season + " 장소 추천");
         frame.setSize(600, 600);
-        frame.setLayout(new BorderLayout());
+        frame.setLayout(null); 
 
-        JPanel topPanel = new JPanel();
-        JLabel title = new JLabel(season + "에 어울리는 장소를 목적에 맞게 추천 받아보세요.");
-        title.setFont(new Font("Serif", Font.BOLD, 32));
-        topPanel.add(title);
-        frame.add(topPanel, BorderLayout.NORTH);
+        JLabel message = new JLabel(season + "에 어울리는 장소를 목적에 맞게 추천 받아보세요.");
+        message.setFont(new Font("Serif", Font.BOLD, 20));
+        Dimension size = message.getPreferredSize();
+        int x = (600 - size.width) / 2; 
+        message.setBounds(x, 100, size.width, size.height); 
+        frame.add(message);
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(1, 3, 10, 50));
-
+        Dimension buttonSize = new Dimension(130, 200); 
+        
         JButton mealButton = new JButton("식사");
         JButton cafeButton = new JButton("카페");
         JButton tourButton = new JButton("관광");
+        
 
-        Dimension preferredSize = new Dimension(600, 240);
-        mealButton.setPreferredSize(preferredSize);
-        cafeButton.setPreferredSize(preferredSize);
-        tourButton.setPreferredSize(preferredSize);
+        mealButton.setBounds(80, 250, buttonSize.width, buttonSize.height); 
+        cafeButton.setBounds(230, 250, buttonSize.width, buttonSize.height); 
+        tourButton.setBounds(380, 250, buttonSize.width, buttonSize.height); 
 
-        buttonPanel.add(mealButton);
-        buttonPanel.add(cafeButton);
-        buttonPanel.add(tourButton);
+        frame.add(mealButton);
+        frame.add(cafeButton);
+        frame.add(tourButton);
 
-        frame.add(buttonPanel, BorderLayout.SOUTH);
-
-        mealButton.addActionListener(e -> showContent(season, "식사"));
-        cafeButton.addActionListener(e -> showContent(season, "카페"));
-        tourButton.addActionListener(e -> showContent(season, "관광"));
+        mealButton.addActionListener(e -> Third_frame(season, "식사"));
+        cafeButton.addActionListener(e -> Third_frame(season, "카페"));
+        tourButton.addActionListener(e -> Third_frame(season, "관광"));
 
         frame.setVisible(true);
     }
 
+
     
     // 마지막 화면
-    private static void showContent(String season, String content) 
+    private static void Third_frame(String season, String content) 
     {
         JFrame content_frame = new JFrame(season + " " + content);
         content_frame.setSize(600, 600);
