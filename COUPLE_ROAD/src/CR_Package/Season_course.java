@@ -32,6 +32,13 @@ public class Season_course
         message.setHorizontalAlignment(JLabel.CENTER);
         message.setBounds(50, 200, 500, 100);
         panel.add(message);
+        
+        JLabel icon_credit = new JLabel("Icons by Icon8");
+        icon_credit.setForeground(Color.GRAY);
+        icon_credit.setFont(new Font("Nanum Gothic", Font.PLAIN, 10));
+        icon_credit.setHorizontalAlignment(JLabel.CENTER);
+        icon_credit.setBounds(250, 540, 100, 20);
+        panel.add(icon_credit);
 
         ImageIcon spring_button = new ImageIcon(Season_course.class.getResource("/CR_Package/img/spring.png"));
         ImageIcon summer_button = new ImageIcon(Season_course.class.getResource("/CR_Package/img/summer.png"));
