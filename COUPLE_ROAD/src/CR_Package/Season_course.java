@@ -92,6 +92,8 @@ public class Season_course
             }
         });
     }
+    
+    // 2번째 화면
     private static void Second_frame(String season) {
         // JFrame 객체 생성
         JFrame frame = new JFrame(season + " 장소 추천");
