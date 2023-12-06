@@ -92,44 +92,107 @@ public class Season_course
             }
         });
     }
-
-    
-    // 두 번째 화면
-    // 레이아웃 제거 후 직접 지정으로 변경
     private static void Second_frame(String season) {
+        // JFrame 객체 생성
         JFrame frame = new JFrame(season + " 장소 추천");
         frame.setSize(600, 600);
-        frame.setLayout(null); 
 
+        // 계절에 따라 배경화면 이미지 선택
+        String backgroundImage = "";
+        if (season.equals("봄")) {
+            backgroundImage = "/CR_Package/img/back_spring.JPG";
+        } else if (season.equals("여름")) {
+            backgroundImage = "/CR_Package/img/back_summer.JPG";
+        } else if (season.equals("가을")) {
+            backgroundImage = "/CR_Package/img/back_autumn.JPG";
+        } else if (season.equals("겨울")) {
+            backgroundImage = "/CR_Package/img/back_winter.JPG";
+        }
+
+        // 배경화면 이미지 아이콘 생성
+        ImageIcon backgroundIcon = new ImageIcon(Season_course.class.getResource(backgroundImage));
+
+        // 배경화면을 표시할 JLabel 생성 및 크기 설정
+        JLabel backgroundLabel = new JLabel(backgroundIcon);
+
+        // 이미지를 JFrame 크기에 맞게 스케일링
+        double scaleFactor = Math.max(
+                (double) frame.getWidth() / backgroundIcon.getIconWidth(),
+                (double) frame.getHeight() / backgroundIcon.getIconHeight()
+        );
+
+        int newWidth = (int) (backgroundIcon.getIconWidth() * scaleFactor);
+        int newHeight = (int) (backgroundIcon.getIconHeight() * scaleFactor);
+        Image scaledImage = backgroundIcon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+        backgroundIcon = new ImageIcon(scaledImage);
+
+        backgroundLabel.setIcon(backgroundIcon);
+        backgroundLabel.setSize(frame.getSize());
+
+        // 레이아웃을 null로 설정하여 컴포넌트 위치를 수동으로 지정
+        frame.setLayout(null);
+
+        // JLabel의 크기와 위치를 조절하여 전체 JFrame을 채우도록 설정
+        backgroundLabel.setBounds(0, 0, frame.getWidth(), frame.getHeight());
+
+        // 배경화면 JLabel을 content pane에 추가하고 레이어 설정
+        frame.getLayeredPane().add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
+
+        // 메시지 JLabel 생성 및 설정
         JLabel message = new JLabel(season + "에 어울리는 장소를 목적에 맞게 추천 받아보세요.");
         message.setFont(new Font("Serif", Font.BOLD, 20));
+        message.setForeground(Color.WHITE);
         Dimension size = message.getPreferredSize();
-        int x = (600 - size.width) / 2; 
-        message.setBounds(x, 100, size.width, size.height); 
-        frame.add(message);
+        int x = (frame.getWidth() - size.width) / 2;
+        message.setBounds(x, 100, size.width, size.height);
 
-        Dimension buttonSize = new Dimension(130, 200); 
-        
+        // 메시지 JLabel을 content pane에 추가하고 레이어 설정
+        frame.getLayeredPane().add(message, JLayeredPane.PALETTE_LAYER);
+
+        // 버튼 크기 설정
+        Dimension buttonSize = new Dimension(80, 80); // 조절된 크기로 변경
+
+        // 버튼 이미지 아이콘 생성
+        ImageIcon mealIcon = new ImageIcon(Season_course.class.getResource("/CR_Package/img/eating.png"));
+        ImageIcon cafeIcon = new ImageIcon(Season_course.class.getResource("/CR_Package/img/coffee.png"));
+        ImageIcon tourIcon = new ImageIcon(Season_course.class.getResource("/CR_Package/img/travel.png"));
+
+        // 이미지 아이콘 크기 조절
+        mealIcon = new ImageIcon(mealIcon.getImage().getScaledInstance(buttonSize.width, buttonSize.height, Image.SCALE_SMOOTH));
+        cafeIcon = new ImageIcon(cafeIcon.getImage().getScaledInstance(buttonSize.width, buttonSize.height, Image.SCALE_SMOOTH));
+        tourIcon = new ImageIcon(tourIcon.getImage().getScaledInstance(buttonSize.width, buttonSize.height, Image.SCALE_SMOOTH));
+
+        // 버튼 생성
         JButton mealButton = new JButton("식사");
         JButton cafeButton = new JButton("카페");
         JButton tourButton = new JButton("관광");
-        
 
-        mealButton.setBounds(80, 250, buttonSize.width, buttonSize.height); 
-        cafeButton.setBounds(230, 250, buttonSize.width, buttonSize.height); 
-        tourButton.setBounds(380, 250, buttonSize.width, buttonSize.height); 
+        // 이미지 아이콘을 버튼에 설정
+        mealButton.setIcon(mealIcon);
+        cafeButton.setIcon(cafeIcon);
+        tourButton.setIcon(tourIcon);
 
-        frame.add(mealButton);
-        frame.add(cafeButton);
-        frame.add(tourButton);
+        // 버튼 위치 지정
+        mealButton.setBounds(80, 300, buttonSize.width, buttonSize.height);
+        cafeButton.setBounds(230, 300, buttonSize.width, buttonSize.height);
+        tourButton.setBounds(380, 300, buttonSize.width, buttonSize.height);
 
+        // 각 버튼을 content pane에 추가하고 레이어 설정
+        frame.getLayeredPane().add(mealButton, JLayeredPane.POPUP_LAYER);
+        frame.getLayeredPane().add(cafeButton, JLayeredPane.POPUP_LAYER);
+        frame.getLayeredPane().add(tourButton, JLayeredPane.POPUP_LAYER);
+
+        // 각 버튼에 리스너 추가
         mealButton.addActionListener(e -> Third_frame(season, "식사"));
         cafeButton.addActionListener(e -> Third_frame(season, "카페"));
         tourButton.addActionListener(e -> Third_frame(season, "관광"));
 
+        // JFrame 설정 및 화면 표시
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 
+    
 
     
     // 마지막 화면
@@ -198,7 +261,7 @@ public class Season_course
         // 가을
         else if (season.equals("가을") && content.equals("식사")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_meal.jfif"));
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_meal.jpg"));
             name = "장소이름";
             text = "설명";
         } 
@@ -210,7 +273,7 @@ public class Season_course
         }
         else if (season.equals("가을") && content.equals("관광")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_tour.jpg"));
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_tour.png"));
             name = "장소이름";
             text = "설명";
         }
@@ -219,19 +282,19 @@ public class Season_course
       // 겨울
         else if (season.equals("겨울") && content.equals("식사")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_meal.jfif"));
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_meal."));
             name = "장소이름";
             text = "설명";
         } 
         else if (season.equals("겨울") && content.equals("카페")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_cafe.jpg"));
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_cafe.png"));
             name = "장소이름";
             text = "설명";
         }
         else if (season.equals("겨울") && content.equals("관광")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_tour.jpg"));
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_tour.png"));
             name = "장소이름";
             text = "설명";
         }
