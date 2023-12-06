@@ -92,8 +92,6 @@ public class Season_course
             }
         });
     }
-    
-    // 2번째 화면
     private static void Second_frame(String season) {
         // JFrame 객체 생성
         JFrame frame = new JFrame(season + " 장소 추천");
@@ -263,42 +261,42 @@ public class Season_course
         // 가을
         else if (season.equals("가을") && content.equals("식사")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_meal.jpg"));
-            name = "장소이름";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_meal.jp"));
+            name = "약수터산장";
+            text = "시원하게 뚫려있는 창으로 가을 마운틴 뷰를 보며 식사할 수 있는 오리고깃집 ";
         } 
         else if (season.equals("가을") && content.equals("카페")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_cafe.jpg"));
-            name = "장소이름";
-            text = "설명";
+            name = "피드";
+            text = "가을 계곡을 즐길 수 있는 애견동반 까페";
         }
         else if (season.equals("가을") && content.equals("관광")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_tour.png"));
-            name = "장소이름";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_tour.jpg"));
+            name = "사굼부리";
+            text = "제주도의 관광명소 중 억새로 뒤덮혀 있어 가을의 정취를 느낄 수 있는 장소.";
         }
         
         
       // 겨울
         else if (season.equals("겨울") && content.equals("식사")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_meal."));
-            name = "장소이름";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_meal.jfif"));
+            name = "우리회 포차";
+            text = "겨울 대방어를 즐길 수 있는 접근성 좋은 서울에 위치한 식당";
         } 
         else if (season.equals("겨울") && content.equals("카페")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_cafe.png"));
-            name = "장소이름";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_cafe.jpg"));
+            name = "회화나무";
+            text = "사계절 창덕궁 뷰를 보며 따뜨한 음료를 즐길 수 있는 까페";
         }
         else if (season.equals("겨울") && content.equals("관광")) 
         {
-            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_tour.png"));
-            name = "장소이름";
-            text = "설명";
+            image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_tour.jpg"));
+            name = "무주 덕유산리조트";
+            text = "리조트를 타고 올라가 설천봉까지 오를 수 있으며 멋진 설경을 볼 수 있는 등산로";
         }
         
         
