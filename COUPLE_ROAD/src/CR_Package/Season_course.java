@@ -291,45 +291,43 @@ public class Season_course
         }      
          
         
-        // 가을
+         // 가을
         else if (season.equals("가을") && content.equals("식사")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_meal.jpg"));
-            name = "장소이름";
-            text = "설명";
+            name = "약수터 산장";
+            text = "물든 단풍잎이 보이는 마운틴뷰에서 식사할 수 있는 오리고기 맛집";
         } 
         else if (season.equals("가을") && content.equals("카페")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_cafe.jpg"));
-            name = "장소이름";
-            text = "설명";
+            name = "피드";
+            text = "계곡 근처에 있어서 계곡과 단풍을 즐기기 좋은 까페";
         }
         else if (season.equals("가을") && content.equals("관광")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/autumn_tour.png"));
-            name = "장소이름";
-            text = "설명";
+            name = "산굼부리";
+            text = "억새로 뒤덮힌 길을 걸으며 가을의 정취를 느낄 수 있는 곳";
         }
-        
-        
-      // 겨울
+   // 겨울
         else if (season.equals("겨울") && content.equals("식사")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_meal."));
-            name = "장소이름";
-            text = "설명";
+            name = "자매수산";
+            text = "강남에 있는 접근성 좋은 5대 방어 맛집. 겨울 제철 음식을 즐길 수 있다.";
         } 
         else if (season.equals("겨울") && content.equals("카페")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_cafe.png"));
-            name = "장소이름";
-            text = "설명";
+            name = "아나파우오";
+            text = "한적한 곳에 위치해있어 탁트인 자연뷰를 즐기며 음료를 마실 수 있는 까페.";
         }
         else if (season.equals("겨울") && content.equals("관광")) 
         {
             image = new ImageIcon(Season_course.class.getResource("/CR_Package/img/winter_tour.png"));
-            name = "장소이름";
-            text = "설명";
+            name = "무주 덕유산 리조트";
+            text = "리조트를 타고 설천봉까지 오를 수 있으며 곤돌라를 타고 올라가 멋진 설경을 관람할 수 있는 곳.";
         }
         
         
